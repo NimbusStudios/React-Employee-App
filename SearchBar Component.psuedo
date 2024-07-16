@@ -1,0 +1,8 @@
+Component SearchBar:
+    Props: setSearchTerm (function)
+
+    Function handleChange(event):
+        Call setSearchTerm with event target value
+
+    Render:
+        <input type="text" onChange={handleChange} placeholder="Search employees..." />
