@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Luga&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #121212;
+  font-family: 'Luga', sans-serif; 
+  color: white;
+}
+
+/* Optional: Custom Scrollbar (for a more polished look) */
+/* You might need to adjust this for different browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #202020;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #66EB9A; 
+  border-radius: 4px;
+}
