@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Luga&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 body {
   background-color: #121212;
@@ -23,4 +23,17 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #66EB9A; 
   border-radius: 4px;
+}
+
+/* Add fallbacks for older browsers */
+@supports not (scrollbar-width: thin) {
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+}
+
+@supports not (-webkit-appearance: none) {
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
 }
