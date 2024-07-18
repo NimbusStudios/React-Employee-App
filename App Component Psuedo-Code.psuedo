@@ -1,0 +1,34 @@
+Component App:
+    State: employees (array), searchTerm (string)
+
+    useEffect: load employees from localStorage
+        If localStorage has employees:
+            Set employees state to parsed localStorage employees
+
+    useEffect: save employees to localStorage whenever employees change
+        Save employees state to localStorage
+
+    Function addEmployee(employee):
+        Add employee to employees state
+
+    Function updateEmployee(updatedEmployee):
+        Map employees state:
+            If employee id matches updatedEmployee id:
+                Replace with updatedEmployee
+            Else:
+                Keep current employee
+
+    Function deleteEmployee(id):
+        Filter employees state to remove employee with matching id
+
+    Function filteredEmployees:
+        Filter employees based on searchTerm
+
+    Render:
+        <SearchBar setSearchTerm={setSearchTerm} />
+        <EmployeeForm addEmployee={addEmployee} />
+        <EmployeeList 
+            employees={filteredEmployees} 
+            updateEmployee={updateEmployee} 
+            deleteEmployee={deleteEmployee} 
+        />

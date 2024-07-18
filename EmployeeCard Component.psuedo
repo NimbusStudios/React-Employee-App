@@ -1,0 +1,7 @@
+Component EmployeeCard:
+    Props: employee (object), updateEmployee (function), deleteEmployee (function)
+
+    Render:
+        Display employee details
+        <button onClick={() => deleteEmployee(employee.id)}>Delete</button>
+        <button onClick={() => updateEmployee(employee)}>Edit</button>

@@ -1,0 +1,16 @@
+Component EmployeeForm:
+    State: employee (object with fields: id, name, surname, email, position, department, phone, image, startDate)
+
+    Function handleChange(event):
+        Update employee state with event target name and value
+
+    Function handleSubmit(event):
+        Prevent default form submission
+        Call addEmployee with employee state
+        Reset employee state to empty fields
+
+    Render:
+        <form onSubmit={handleSubmit}>
+            Render input fields for employee details with onChange={handleChange}
+            <button type="submit">Add Employee</button>
+        </form>
