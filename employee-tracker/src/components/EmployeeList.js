@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import SearchBar from './SearchBar';
 
+
 // Component to display a list of employees
 const EmployeeList = ({ employees, onDelete, onEdit }) => {
   // State variable to hold the search term

@@ -1,5 +1,7 @@
+// This component renders a form for adding or editing an employee and handles form submission
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useDropzone } from 'react-dropzone';
 
 // Define the EmployeeForm component
 const EmployeeForm = ({ employee, onSubmit }) => {
@@ -10,24 +12,28 @@ const EmployeeForm = ({ employee, onSubmit }) => {
 
   // Initialize formData state with default values
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    position: '',
-    startDate: '', 
+    firstName: '', // First name of the employee
+    lastName: '', // Last name of the employee
+    email: '', // Email of the employee
+    position: '', // Position of the employee
+    startDate: '', // Start date of the employee
   });
 
   // Effect hook to update formData when employee prop changes
   useEffect(() => {
+    // If employee prop is provided, update formData with the employee data
     if (employee) {
       setFormData(employee);
     }
   }, [employee]);
-  
+
+  // Function to handle file upload
+  // NOTE: This function is not implemented in this code snippet
 
   // Handle change in form input fields
   const handleChange = (e) => {
     const { name, value } = e.target;
+    // Update the corresponding field in formData state with the new value
     setFormData({ ...formData, [name]: value });
   };
 
@@ -35,7 +41,7 @@ const EmployeeForm = ({ employee, onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // If startDate is empty, set it to current date
+    // If startDate field is empty, set it to current date
     if (!formData.startDate) {
       formData.startDate = new Date().toISOString().slice(0, 10); 
     }
@@ -122,7 +128,28 @@ const EmployeeForm = ({ employee, onSubmit }) => {
             className="w-full px-3 py-2 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring focus:ring-yellow-500"
           />
         </div>
-        <div>
+
+        {/* Add other input fields here (department, phone, image) */}
+        {/* Add department dropdown */}
+        {/* Add phone number input */}
+        {/* Add image upload field */}
+        {/* Add image preview functionality */} 
+
+        {/* Add file upload functionality */}
+        {/* Add image preview functionality */}
+
+
+        
+        <div> 
+          <label htmlFor="uploadFile" className="block text-gray-300">
+            Upload File:
+          </label>
+          <input
+            type="file"
+            id="uploadFile"
+            name="uploadFile"
+            className="w-full px-3 py-2 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring focus:ring-yellow-500"
+          />
           <button
             type="submit"
             className="bg-green-500 hover:bg-green-600 text-gray-900 font-bold py-2 px-4 rounded-md"
@@ -137,3 +164,4 @@ const EmployeeForm = ({ employee, onSubmit }) => {
 
 
 export default EmployeeForm;
+
