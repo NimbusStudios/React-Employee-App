@@ -17,6 +17,10 @@ const EmployeeForm = ({ employee, onSubmit }) => {
     email: '', // Email of the employee
     position: '', // Position of the employee
     startDate: '', // Start date of the employee
+    department: '', // Department of the employee
+    phone: '', // Phone number of the employee
+    image: '', // Image URL of the employee
+    id: id || '', // ID of the employee
   });
 
   // Effect hook to update formData when employee prop changes

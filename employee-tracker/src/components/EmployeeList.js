@@ -55,6 +55,9 @@ const EmployeeList = ({ employees, onDelete, onEdit }) => {
           <td className="px-4 py-2">{employee.email}</td>
           <td className="px-4 py-2">{employee.position}</td>
           <td className="px-4 py-2">{formattedStartDate}</td>
+          <td className="px-4 py-2">{employee.id}</td>
+          <td className="px-4 py-2">{employee.department}</td>
+
           <td className="px-4 py-2">
             {/* Edit button. Calls handleEdit when clicked */}
             <button
