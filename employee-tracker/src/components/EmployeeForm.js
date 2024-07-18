@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
+// Define the EmployeeForm component
 const EmployeeForm = ({ employee, onSubmit }) => {
+  // Initialize the navigation function using useNavigate hook
   const navigate = useNavigate();
+  // Get the id parameter from the URL using useParams hook
   const { id } = useParams();
 
+  // Initialize formData state with default values
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -13,17 +17,21 @@ const EmployeeForm = ({ employee, onSubmit }) => {
     startDate: '', 
   });
 
+  // Effect hook to update formData when employee prop changes
   useEffect(() => {
     if (employee) {
       setFormData(employee);
     }
   }, [employee]);
+  
 
+  // Handle change in form input fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -32,17 +40,19 @@ const EmployeeForm = ({ employee, onSubmit }) => {
       formData.startDate = new Date().toISOString().slice(0, 10); 
     }
 
+    // Call the onSubmit function with formData and navigate to homepage
     onSubmit(formData);
     navigate('/');
   };
 
+  // Render the form with input fields and submit button
   return (
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-2xl font-bold mb-4 text-white">
         {employee ? 'Edit Employee' : 'Add Employee'}
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
+        <div>
           <label htmlFor="firstName" className="block text-gray-300">
             First Name:
           </label>
@@ -124,5 +134,6 @@ const EmployeeForm = ({ employee, onSubmit }) => {
     </div>
   );
 };
+
 
 export default EmployeeForm;

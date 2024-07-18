@@ -11,18 +11,46 @@ function App() {
 
   useEffect(() => {
     // ... load from localStorage or generate data (unchanged)
+    const storedEmployees = getEmployees();
+    if (storedEmployees.length === 0) {
+      const generatedEmployees = generateEmployees(10);
+      saveEmployees(generatedEmployees);
+      setEmployees(generatedEmployees);
+    } else {
+      setEmployees(storedEmployees);
+    }
   }, []);
 
   const addEmployee = (newEmployee) => {
     // ... logic to add employee (unchanged)
+    setEmployees([...employees, newEmployee]);
+    saveEmployees([...employees, newEmployee]);
+    setEditingEmployee(null);
+    window.location.href = '/';
+    // ...
   };
 
   const updateEmployee = (updatedEmployee) => {
     // ... logic to update employee (unchanged)
+    const updatedEmployees = employees.map((employee) => {
+      if (employee.id === updatedEmployee.id) {
+        return updatedEmployee;
+      }
+      return employee;
+    });
+    setEmployees(updatedEmployees);
+    saveEmployees(updatedEmployees);
+    setEditingEmployee(null);
+    window.location.href = '/';
   };
 
   const deleteEmployee = (employeeId) => {
     // ... logic to delete employee (unchanged)
+    const updatedEmployees = employees.filter((employee) => employee.id !== employeeId);
+    setEmployees(updatedEmployees);
+    saveEmployees(updatedEmployees);
+    setEditingEmployee(null);
+    window.location.href = '/';
   };
 
   return (
