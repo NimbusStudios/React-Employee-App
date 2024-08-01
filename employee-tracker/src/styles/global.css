@@ -8,6 +8,8 @@ body {
   background-color: #121212;
   font-family: 'Luga', sans-serif; 
   color: white;
+  padding: 30px;
+  border-radius: 50px;
 }
 
 /* Optional: Custom Scrollbar (for a more polished look) */
