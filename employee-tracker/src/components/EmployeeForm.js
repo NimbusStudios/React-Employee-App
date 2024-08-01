@@ -1,7 +1,7 @@
 // This component renders a form for adding or editing an employee and handles form submission
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useDropzone } from 'react-dropzone';
+
 
 // Define the EmployeeForm component
 const EmployeeForm = ({ employee, onSubmit }) => {

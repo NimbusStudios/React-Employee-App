@@ -13,7 +13,7 @@ function App() {
     // ... load from localStorage or generate data (unchanged)
     const storedEmployees = getEmployees();
     if (storedEmployees.length === 0) {
-      const generatedEmployees = generateEmployees(10);
+      const generatedEmployees = generateEmployees(0);
       saveEmployees(generatedEmployees);
       setEmployees(generatedEmployees);
     } else {
